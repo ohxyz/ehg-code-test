@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 
 function App( { rows=100, cols=100, cellSize=10 } ) {
 
+    if ( rows * cols > 32768 || rows * cols < 8 ) {
+        throw new Error( 'Colors numbers are between 8 and 32768.' )
+    }
+
     const width = cols * cellSize;
     const height = rows * cellSize;
 
